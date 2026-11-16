@@ -1,0 +1,358 @@
+:root{
+  --main:#493A40; --sub:#FDEFF4; --sub2:#FFC0D3; --sub3:#FF5C8D;
+  --tint:rgba(255,192,211,.45); --muted:#6f6569;
+  --bs-body-font-family:"Zen Maru Gothic","Noto Sans JP",system-ui,sans-serif;
+  --bs-body-color:var(--main); --bs-body-bg:var(--sub);
+  --wave-front:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 44' preserveAspectRatio='none'%3E%3Cpath fill='%23FDEFF4' d='M0 22Q120 0 240 22T480 22V44H0Z'/%3E%3C/svg%3E");
+  --wave-back:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 420 56' preserveAspectRatio='none'%3E%3Cpath fill='%23FDEFF4' fill-opacity='.55' d='M0 30Q105 6 210 30T420 30V56H0Z'/%3E%3C/svg%3E");
+  --heart-tile:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='%23FFC0D3' fill-opacity='.4'%3E%3Cpath transform='translate(14 14) scale(.8)' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3Cpath transform='translate(62 62) scale(.8)' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/g%3E%3C/svg%3E");
+  --heart-pink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FF5C8D' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+  --heart-white:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' fill-opacity='.45' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+}
+
+/* ===== 全体 ===== */
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
+body{line-height:1.9;position:relative;display:flex;flex-direction:column;min-height:100vh}
+/* 内容が短いページでも、フッターを一番下に置く */
+body>footer{margin-top:auto}
+body>section.block:last-of-type{margin-bottom:3rem}
+/* 背景のハート模様（全体を少し傾ける） */
+.bg-heart{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bg-heart::before{content:"";position:absolute;left:-10%;right:-10%;top:-80px;bottom:-80px;background-image:var(--heart-tile);background-size:96px 96px;transform:rotate(-3.5deg)}
+::selection{background:var(--sub2)}
+h1,h2,h3,.navbar-brand{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif;font-weight:900;letter-spacing:.03em}
+a:focus-visible,button:focus-visible{outline:3px solid var(--main);outline-offset:2px}
+
+/* ===== ナビ ===== */
+.navbar{background:var(--main);border-bottom:3px solid var(--sub2)}
+.navbar-brand,.navbar-brand:hover{color:var(--sub)}
+.brand-img{position:relative;flex:none;width:40px;height:40px;border-radius:50%;overflow:hidden;display:inline-flex;align-items:center;justify-content:center}
+.brand-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.navbar .nav-link{color:var(--sub);font-weight:700;border-radius:999px;padding:.4rem 1rem;margin:.15rem 0 .15rem .25rem}
+.navbar .nav-link:hover{background:rgba(253,239,244,.15);color:var(--sub)}
+.navbar .nav-link.active{background:var(--sub2);color:var(--main)}
+.navbar-toggler{border:0;border-radius:999px;padding:.3rem .6rem}
+.navbar-toggler:focus{box-shadow:none}
+.navbar-toggler-icon{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23FDEFF4' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")}
+.navbar a:focus-visible,.navbar button:focus-visible{outline-color:var(--sub)}
+/* ハンバーガーメニューを開いたときは項目を右揃え */
+@media (max-width:767.98px){.navbar-nav{align-items:flex-end}.navbar-collapse{padding-bottom:.5rem}}
+
+/* ===== トップ・ページ見出し（下端の波線） ===== */
+.masthead,.page-head{position:relative;overflow:hidden;color:var(--main);background:linear-gradient(165deg,var(--sub2) 0%,#ffd8e4 62%,var(--sub) 100%)}
+.masthead::after,.page-head::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:56px;background:var(--wave-front) 0 100%/480px 44px repeat-x,var(--wave-back) 0 100%/420px 56px repeat-x}
+.masthead .container,.page-head .container{position:relative;z-index:1}
+.page-head{padding:7rem 0 4.5rem}
+.page-head h1{font-size:clamp(1.9rem,6vw,3rem);margin:0}
+/* 薄いハートが上から下へゆっくり落ちる（全ページのヘッダー部分。ハートは site.js が作る）
+   --x 横の位置 / --size 大きさ / --duration 落ちきるまでの時間 / --delay 開始のずれ
+   動きは transform だけで付ける（top などで動かすと 1px 単位でカクついて震えて見えるため） */
+.falling-hearts{position:absolute;inset:0;overflow:hidden;pointer-events:none;container-type:size}
+.falling-hearts i{position:absolute;top:0;left:var(--x);width:var(--size);aspect-ratio:1;margin-left:calc(var(--size) / -2);
+  background:var(--heart-white) center/contain no-repeat;will-change:transform;
+  animation:heart-fall var(--duration) linear var(--delay) infinite,heart-sway 4s ease-in-out var(--delay) infinite alternate}
+/* 落ちる（一定の速さ）。100cqh = ヘッダー部分の高さ */
+@keyframes heart-fall{
+  from{transform:translateY(calc(var(--size) * -1))}
+  to{transform:translateY(100cqh)}
+}
+/* 左右にゆらゆら揺れながら傾く */
+@keyframes heart-sway{
+  from{translate:-12px 0;rotate:-15deg}
+  to{translate:12px 0;rotate:10deg}
+}
+
+/* ===== トップ（index） ===== */
+/* トップをフッターまで伸ばして、波線を一番下に置く */
+.masthead{padding:7rem 0 6rem;flex:1 0 auto}
+/* 波線を画像より手前に出し、波線より下には画像が映らないようにする */
+.masthead::after{z-index:2}
+@media (min-width:992px){
+  /* ロゴとトップ画像を縦の中央に置き、並びの幅を 1320px に固定する（はみ出した部分は左右で切れる） */
+  .masthead{display:flex;align-items:center}
+  .masthead .container{flex:none;width:1320px;max-width:none;margin:0;left:50%;translate:-50% 0}
+}
+
+/* 背景アイコン（ロゴの裏） */
+.hero-text{position:relative}
+.hero-text>*:not(.hero-bgicon){position:relative;z-index:1}
+.hero-bgicon{position:absolute;z-index:0;left:-1rem;top:50%;width:min(340px,80vw);aspect-ratio:1;transform:translateY(-50%);opacity:.4;pointer-events:none}
+.hero-bgicon img{position:relative;left:-100px;height:1000px;object-fit:contain}
+
+/* トップ画像（押すとキャラ紹介へ）: 場所の高さだけ確保し、画像は浮かせて置く */
+.hero-photo{position:relative}
+.portrait-link{position:relative;z-index:1;display:block;color:inherit;text-decoration:none}
+.portrait.hero-cutout{display:block;width:100%;height:376px;overflow:visible;background:none;border:0;border-radius:0;box-shadow:none}
+.portrait.hero-cutout img{
+  position:absolute;inset:auto;left:calc(50% - 100px);top:-340px;translate:-50% 0;
+  display:block;width:700px;height:auto;object-fit:contain;
+  /* 下の方をグラデーションで透過させる */
+  -webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent 80%);
+          mask-image:linear-gradient(to bottom,#000 70%,transparent 80%);
+  transition:filter .25s ease;
+}
+.portrait-link:hover .portrait.hero-cutout img{filter:drop-shadow(6px 6px 0 var(--sub3))}
+
+/* ロゴ（押すと自分の紹介へ）: トップ画像より手前に浮かせて置く。押せるのはロゴの部分だけ */
+.hero-text>.hero-logo{position:relative;z-index:3;width:100%;height:0;pointer-events:none}
+.hero-logo img{position:absolute;left:calc(50% - 50px);top:50%;translate:-50% -50%;display:block;width:600px;height:auto;transition:filter .25s ease}
+.hero-logo a{pointer-events:auto}
+.hero-logo a:hover img{filter:drop-shadow(6px 6px 0 var(--sub3))}
+
+/* 992px未満: 上下に並べる（トップ画像が上、ロゴが下） */
+@media (max-width:991.98px){
+  .masthead .hero-text{order:2}
+  .portrait.hero-cutout{height:0}
+  .portrait.hero-cutout img{left:calc(50% + 70px);top:-200px;width:850px}
+  .hero-text>.hero-logo{height:720px}
+  .hero-logo img{left:50%;top:calc(50% + 250px);width:650px}
+}
+@media (max-width:575.98px){
+  .masthead{padding:6rem 0 5rem}
+  .portrait.hero-cutout img{top:-180px;width:750px}
+  .hero-text>.hero-logo{height:360px}
+  .hero-logo img{top:calc(50% + 400px);width:500px}
+}
+
+/* ===== 本文ブロック ===== */
+.block{padding:4.5rem 0}
+.block.tint{background:var(--tint);margin:0 .75rem;border-radius:36px}
+.block.tint+.block.tint{margin-top:1.5rem}
+.block h2{display:inline-block;font-size:clamp(1.5rem,4vw,2rem);margin-bottom:1.5rem;padding:0 .5rem;background:linear-gradient(transparent 62%,var(--sub2) 62%)}
+.lead-text{max-width:40rem;color:var(--muted)}
+@media (max-width:575.98px){.block{padding:3.2rem 0}}
+
+/* 画像の枠（img が読めないときは中の文字が見える） */
+.portrait{position:relative;aspect-ratio:3/4;background:var(--sub2);border:6px solid #fff;border-radius:32px;box-shadow:10px 10px 0 var(--sub3);overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--main);font-weight:700}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* プロフィール表 */
+.profile{width:100%;border-collapse:separate;border-spacing:0 .6rem}
+.profile th,.profile td{padding:.45rem .5rem;vertical-align:top;text-align:left}
+.profile th{width:8.5em;white-space:nowrap;font-weight:700;color:var(--main);background:var(--sub2);border-radius:1.2rem;text-align:center;vertical-align:middle}
+.block.tint .profile th{background:#fff}
+@media (max-width:575.98px){.profile th{width:6.5em}}
+
+/* ===== 自分の紹介 ===== */
+/* 左: アイコン画像（1:1の丸型）。画像が読めないときは「アイコン画像」の文字が出る */
+.about-avatar{position:relative;width:min(100%,300px);margin:0 auto;aspect-ratio:1;border-radius:50%;overflow:hidden;
+  background:var(--sub2);border:6px solid #fff;box-shadow:8px 8px 0 var(--sub3);
+  display:flex;align-items:center;justify-content:center;color:var(--main);font-size:.85rem;font-weight:700}
+.about-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:767.98px){.about-avatar{width:220px}}
+/* 右: 名前（ふりがな付き）と自己紹介 */
+.block .about-name{display:block;width:fit-content;margin-bottom:1.2rem;font-size:clamp(2.2rem,6vw,3.6rem)}
+/* 自己紹介文の見出し（About me） */
+.about-heading{display:inline-block;font-size:1.3rem;letter-spacing:.08em;margin-bottom:.8rem;padding-bottom:.2rem;border-bottom:2px dashed var(--sub3)}
+/* 活動内容: 狭いときは1列、広いときは2列のカード */
+.activity-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem}
+@media (min-width:768px){.activity-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.activity-card{height:100%;background:#fff;border:2px solid var(--sub2);border-radius:24px;box-shadow:8px 8px 0 var(--sub3);padding:1.5rem 1.7rem}
+.activity-card h3{font-size:1.25rem;margin-bottom:.5rem}
+.activity-card h3::before{content:"♥";margin-right:.4rem;color:var(--sub3)}
+.activity-card p{margin:0;color:var(--muted)}
+.activity-card a{color:var(--sub3);font-weight:700}
+/* 活動内容の工事中表示: 考え中の乃愛と、漫画の「考えごと」の吹き出し
+   大きさ・位置は .wip の横幅（cqw = 横幅の1%）に合わせて変わるので、スマホでも同じ見た目になる */
+.wip{position:relative;container-type:inline-size;max-width:620px;margin:0 auto}
+.wip-img{display:block;width:68%;margin-top:34cqw}
+/* 吹き出し: 円を重ねた雲の形。先に太い線の円、上から白い円を重ねて外側だけ縁取りを残す */
+.wip-bubble,.wip-text{position:absolute;right:0;top:0;width:46%;aspect-ratio:300/180}
+.wip-bubble{overflow:visible}
+.wip-bubble-line circle{fill:var(--main);stroke:var(--main);stroke-width:7}
+.wip-bubble-fill circle{fill:#fff}
+.wip-text{margin:0;display:flex;align-items:center;justify-content:center;padding-top:1.5cqw;
+  font-size:4.6cqw;font-weight:900;letter-spacing:.08em;color:var(--main)}
+/* 頭から吹き出しへつながる小さな丸 */
+.wip-dot{position:absolute;border-radius:50%;background:#fff;border:max(2px,.5cqw) solid var(--main)}
+.wip-dot-1{width:2.6cqw;aspect-ratio:1;left:52%;top:30cqw}
+.wip-dot-2{width:4cqw;aspect-ratio:1;left:56%;top:24.5cqw}
+/* 吹き出しと丸をふわふわ上下させる */
+.wip-bubble,.wip-text,.wip-dot{animation:float-y 3s ease-in-out infinite}
+
+/* ===== キャラ紹介: 上部（キャラ画像・台詞・プロフィールの四角） ===== */
+/* 大きな画像が画面の横にはみ出しても、ページが横スクロールしないようにする */
+.char-section{overflow-x:clip}
+.char-top{display:grid;grid-template-columns:minmax(0,1fr);gap:2rem;align-items:center}
+.char-img{width:min(66%,340px);margin:0 auto}
+/* 画像の場所の高さだけ確保し、画像と台詞は浮かせて置く（大きさ・位置を変えても周りのレイアウトは動かない） */
+.portrait.cutout{width:100%;height:400px;overflow:visible;background:none;border:0;border-radius:0;box-shadow:none}
+.portrait.cutout img{
+  inset:auto;left:50%;top:calc(50% + 200px);translate:-50% -50%;
+  width:850px;height:auto;max-width:none;object-fit:contain;
+  filter:drop-shadow(10px 10px 6px rgba(73,58,64,.5));
+}
+.portrait.cutout>span{visibility:hidden}
+.portrait.cutout:has(>img[style*="none"])>span{visibility:visible}
+/* 台詞: 縦書きの四角 */
+.char-serif{
+  position:absolute;z-index:1;margin:0;left:calc(50% + 125px);top:calc(50% - 50px);translate:-50% -50%;
+  writing-mode:vertical-rl;white-space:nowrap;padding:.5em .3em;line-height:1;
+  background:var(--sub2);color:var(--main);font-size:1.6rem;font-weight:900;letter-spacing:.15em;
+}
+/* プロフィールの四角（サブ1の半透明） */
+.char-table{position:relative;z-index:2;width:100%;background:rgba(253,239,244,.55);border:2px solid rgba(255,255,255,.75);border-radius:28px;padding:1.6rem 1.8rem 1.2rem}
+.char-table .char-name{font-size:clamp(1.9rem,4.5vw,2.8rem);margin-bottom:.6rem}
+.char-table .char-name rt,.about-name rt{font-size:.35em;font-weight:700;letter-spacing:.15em;color:var(--sub3);padding-bottom:.15rem}
+.char-divider{margin:.6rem 0 1.2rem;border:0;border-top:2px dashed var(--sub3);opacity:.6}
+.char-table .lead-text{margin-bottom:.4rem;color:var(--main)}
+/* 992px以上: 画像と四角を同じ場所に重ねる（四角が手前・左寄り、画像は中央やや右） */
+@media (min-width:992px){
+  .char-img,.char-table{grid-area:1/1}
+  .char-img{width:100%}
+  .portrait.cutout{height:850px}
+  .portrait.cutout img{left:65%;top:calc(50% - 50px)}
+  .char-serif{left:calc(65% + 170px);top:calc(50% - 290px);font-size:2rem}
+  .char-table{justify-self:start;width:460px;max-width:100%;margin-left:10%}
+}
+
+/* ===== キャラ紹介: キャラクターシート・イラスト ===== */
+.portrait.sheet{aspect-ratio:16/9}
+/* キャラクターシートとイラストの枠の中の色 */
+.portrait.sheet,.gallery-item .portrait{background:#C2B5BC}
+.portrait.sheet img{object-fit:contain}
+/* イラストは狭いときは1列、広いときは2列 */
+.gallery-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:2rem}
+.gallery-item{width:min(100%,480px);margin:0 auto}
+@media (min-width:768px){
+  .gallery-grid{grid-template-columns:repeat(2,minmax(0,480px));justify-content:space-between}
+  .gallery-item{width:auto;margin:0}
+}
+.gallery-title{margin-top:1.2rem;padding:.8rem 1.2rem;background:#fff;border:2px solid var(--sub2);border-radius:18px;box-shadow:6px 6px 0 var(--sub3);
+  text-align:center;font-size:1.1rem;font-weight:700;color:var(--main)}
+
+/* ===== キャラ紹介: 折りたたみの文章 ===== */
+.text-card{background:#fff;border:6px solid #fff;border-radius:32px;box-shadow:10px 10px 0 var(--sub3);padding:2rem 2.2rem}
+.text-card p:last-child{margin-bottom:0}
+@media (max-width:575.98px){.text-card{padding:1.4rem 1.5rem}}
+.fold>summary{display:flex;align-items:center;justify-content:center;gap:.6rem;width:fit-content;min-width:min(18rem,100%);margin:0 auto;list-style:none;cursor:pointer;user-select:none;
+  background:var(--main);color:var(--sub);font-weight:700;border-radius:999px;padding:.7rem 3.5rem;box-shadow:0 5px 0 var(--sub3)}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary:hover{background:#5b4850}
+.fold>summary:active{transform:translateY(3px);box-shadow:0 2px 0 var(--sub3)}
+.fold-icon{font-size:.75em;transition:transform .35s ease}
+/* 開いているとき（閉じるアニメーション中は除く）は「閉じる」と上向きの矢印 */
+.fold-close{display:none}
+.fold[open]:not(.is-closing) .fold-open{display:none}
+.fold[open]:not(.is-closing) .fold-close{display:inline}
+.fold[open]:not(.is-closing) .fold-icon{transform:rotate(180deg)}
+/* 開閉で高さを変えるのではみ出しを隠す。四角の影が切れないよう右と下に余白を取る */
+.fold-body{overflow:hidden}
+.fold-body>*{margin:1.5rem 10px 10px 0}
+
+/* ===== 画像の拡大表示（キャラクターシート・イラストを押すと開く。開閉は site.js） ===== */
+.portrait.is-zoomable{cursor:zoom-in}
+.portrait.is-zoomable:has(>img[style*="none"]){cursor:default}
+.portrait.is-zoomable:focus-visible{outline:3px solid var(--sub3);outline-offset:4px}
+.lightbox{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:5vh 5vw;
+  background:rgba(73,58,64,.85);cursor:zoom-out;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility 0s linear .3s}
+.lightbox.is-open{opacity:1;visibility:visible;transition:opacity .3s ease}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain;border:6px solid #fff;border-radius:24px;transform:scale(.92);transition:transform .3s ease}
+.lightbox.is-open img{transform:none}
+.lightbox-close{position:absolute;top:1rem;right:1rem;width:3rem;height:3rem;border:0;border-radius:50%;
+  background:var(--sub);color:var(--main);font-size:1.6rem;font-weight:700;line-height:1;cursor:pointer}
+.lightbox-close:hover{background:var(--sub2)}
+.lightbox-lock{overflow:hidden}
+
+/* ===== リンク ===== */
+.link-container{max-width:760px}
+.link-list{list-style:none;padding:0;margin:0;display:grid;gap:1.25rem}
+.link-list a{position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:center;gap:1.25rem;
+  background:#fff;border:3px solid var(--sub2);border-radius:32px;padding:1.3rem 1.8rem;box-shadow:0 5px 0 var(--sub2);
+  font-size:1.2rem;font-weight:700;color:var(--main);text-decoration:none;transition:border-color .2s ease}
+.link-list a>span{position:relative;z-index:1}
+.link-list small{font-weight:500;color:var(--muted)}
+.link-list .sns-text{flex:1;min-width:0}
+/* SNSロゴ: メインカラーで塗った角丸の四角形の上に置く */
+.sns-logo{flex:none;width:3.6rem;height:3.6rem;display:flex;align-items:center;justify-content:center;background:var(--main);border-radius:14px;padding:.55rem}
+.sns-logo img{width:100%;height:100%;object-fit:contain}
+.sns-logo.is-empty{border:2px dashed rgba(73,58,64,.35)}
+.sns-logo.is-empty img{display:none}
+/* 右端の矢印 */
+.link-list a>span:last-child{flex:none;width:2.8rem;height:2.8rem;border-radius:50%;background:var(--sub2);color:var(--main);display:flex;align-items:center;justify-content:center;
+  transition:transform .25s ease,background-color .25s ease,color .25s ease}
+/* マウスオーバー: 左から淡いピンクで塗られ、矢印が右上へ動いて濃いピンクになる */
+.link-list a::before{content:"";position:absolute;inset:0;background:var(--sub);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.link-list a:hover{border-color:var(--sub3)}
+.link-list a:hover::before{transform:scaleX(1)}
+.link-list a:hover>span:last-child{transform:translate(3px,-3px);background:var(--sub3);color:#fff}
+@media (max-width:575.98px){.link-list a{padding:1.1rem 1.3rem;font-size:1.1rem;gap:1rem}.sns-logo{width:3.2rem;height:3.2rem}}
+
+/* ===== フッター ===== */
+footer{background:var(--main);color:var(--sub);padding:2rem 0;font-size:.9rem;border-radius:36px 36px 0 0}
+footer a{color:var(--sub);font-weight:700}
+footer a:focus-visible{outline-color:var(--sub)}
+
+/* ===== スクロールで下からふわっと表示（表示の合図は site.js） ===== */
+.js .reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease;transition-delay:calc(var(--i,0) * 90ms)}
+.js .reveal.is-visible{opacity:1;transform:none}
+/* ちらつき防止: site.js が動く前から隠しておく（対象は site.js の targets と同じにすること） */
+.js :is(.hero-logo,.block h2,.block .lead-text,.profile,.portrait,.about-avatar,.about-heading,.activity-card,.wip,.gallery-title,.fold,.link-list li):not(.is-visible){opacity:0}
+/* リンクは1件ずつ 150ms 遅らせる */
+.js .link-list li.reveal{transition-duration:.6s;transition-delay:calc(var(--i,0) * 150ms)}
+/* トップ: ロゴ → トップ画像の順（400ms 間隔） */
+.js .masthead .reveal{transition-duration:.8s;transition-delay:calc(var(--i,0) * 400ms)}
+
+/* ===== 波のゆらゆらと、トップ画像のふわふわ ===== */
+@keyframes wave-move{
+  from{background-position:0 100%,0 100%}
+  to{background-position:-480px 100%,420px 100%}
+}
+@keyframes float-y{
+  0%,100%{translate:0 0}
+  50%{translate:0 -8px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .masthead::after,.page-head::after{animation:wave-move 12s linear infinite}
+  .masthead .portrait{animation:float-y 4.5s ease-in-out infinite}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .link-list a,.link-list a *,.link-list a::before{transition:none!important}
+}
+
+/* ===== アイコンと工事中の乃愛: マウスを乗せると少し大きく浮き上がる ===== */
+.about-avatar,.wip-img{cursor:pointer;transition:scale .25s ease,translate .25s ease,box-shadow .25s ease}
+.wip-img{transform-origin:50% 100%}
+.about-avatar:hover,.wip:hover .wip-img{scale:1.06;translate:0 -6px}
+.about-avatar:hover{box-shadow:12px 14px 0 var(--sub3)}
+
+/* アイコンはフェードイン（.reveal）の transition が優先されるので、浮き上がりの動きもここで付け直す */
+.js .about-avatar.reveal{
+  transition:opacity .7s ease,transform .7s ease,scale .25s ease,translate .25s ease,box-shadow .25s ease;
+  transition-delay:calc(var(--i,0) * 90ms),calc(var(--i,0) * 90ms),0s,0s,0s;
+}
+/* クリックすると、押し込まれたように縮んで弾んで戻る（クラスの付け外しは site.js） */
+@keyframes click-press{0%,100%{transform:scale(1)}30%{transform:scale(.88)}60%{transform:scale(1.08)}80%{transform:scale(.97)}}
+.about-avatar.is-clicked,.wip-img.is-clicked{animation:click-press .5s ease-out}
+
+/* ===== トップのローディング画面（動かすのは site.js） =====
+   読み込み中: 3つのハートが順番に跳ねる → 読み込みが終わると、ハートが消えてロゴがフェードイン・フェードアウト → シャッターが上に開いてトップが出る */
+.loader{display:none}
+.js .loader{position:fixed;inset:0;z-index:3000;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(165deg,var(--sub2) 0%,#ffd8e4 62%,var(--sub) 100%);
+  /* 開くときに見える下端の線と影（閉じている間は画面の外） */
+  box-shadow:0 5px 0 var(--sub3),0 14px 28px rgba(73,58,64,.25);
+  transition:translate .9s cubic-bezier(.7,0,.25,1),visibility 0s linear .9s}
+/* シャッターのように画面全体が上へ開く */
+.js .loader.is-done{translate:0 calc(-100% - 40px);visibility:hidden}
+/* ローディング中もヘッダーは表示する（ヘッダーをローディング画面より手前に出す。ローディング画面が消えると元に戻る） */
+body:has(.loader) .navbar{z-index:3100}
+/* 読み込み中の表示（ハート3つ＋Loading...） */
+.loader-wait{display:flex;flex-direction:column;align-items:center;gap:1.4rem;transition:opacity .4s ease}
+.loader-hearts{display:flex;gap:.8rem}
+.loader-hearts span{width:30px;aspect-ratio:1;background:var(--heart-pink) center/contain no-repeat;animation:loader-bounce 1s ease-in-out infinite}
+.loader-hearts span:nth-child(2){animation-delay:.15s}
+.loader-hearts span:nth-child(3){animation-delay:.3s}
+@keyframes loader-bounce{0%,60%,100%{translate:0 0}30%{translate:0 -22px}}
+.loader-text{margin:0;font-weight:900;letter-spacing:.25em;color:var(--main)}
+/* 読み込み完了後のロゴ（フェードイン → 少し止まる → フェードアウト。全体で 2.4 秒） */
+.loader-logo{position:absolute;left:50%;top:50%;translate:-50% -50%;width:min(600px,80vw);height:auto;opacity:0;pointer-events:none}
+.loader.is-logo .loader-wait{opacity:0}
+.loader.is-logo .loader-logo{animation:loader-logo 2.4s ease-in-out .3s forwards}
+@keyframes loader-logo{
+  0%{opacity:0;scale:.92}
+  30%{opacity:1;scale:1}
+  75%{opacity:1;scale:1}
+  100%{opacity:0;scale:1.03}
+}

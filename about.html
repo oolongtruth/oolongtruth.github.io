@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自分の紹介 | oolongtruth</title>
+<meta name="description" content="oolong site">
+<link rel="icon" href="assets/images/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/site.css" rel="stylesheet">
+<!-- フェードインする要素を最初から隠しておく（ちらつき防止）。site.js が読めなかったときは4秒後に隠すのをやめる -->
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.siteReady)document.documentElement.classList.remove('js')},4000)</script>
+<script src="assets/js/site.js" defer></script>
+
+</head>
+<body>
+<div class="bg-heart" aria-hidden="true"></div>
+<nav class="navbar navbar-expand-md fixed-top navbar-dark">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" title="トップに戻る" aria-label="トップに戻る"><span class="brand-img"><img src="assets/images/oolong_logo.svg" alt="" width="40" height="40" data-hide-on-error></span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="メニューを開く"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="menu"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link active" href="about.html" aria-current="page">自分の紹介</a></li><li class="nav-item"><a class="nav-link" href="character.html">キャラ紹介</a></li><li class="nav-item"><a class="nav-link" href="links.html">リンク</a></li></ul></div>
+  </div>
+</nav>
+
+<header class="page-head" id="top"><div class="container"><h1>自分の紹介</h1></div></header>
+<section class="block">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <!-- 左: アイコン画像（1:1の丸型） -->
+      <div class="col-md-4">
+        <div class="about-avatar"><span>アイコン画像</span><img src="assets/images/u-ronicon_s.webp" alt="烏龍のアイコン" data-hide-on-error></div>
+      </div>
+      <!-- 右: 名前と自己紹介 -->
+      <div class="col-md-8">
+        <h2 class="about-name"><ruby>烏龍<rt>うーろん</rt></ruby></h2>
+        <h3 class="about-heading">About me</h3>
+        <p class="lead-text">はじめまして、烏龍茶の烏龍です。本業はしがないシステムエンジニアです。</p>
+        <p class="lead-text">主にVRChatでグループを運営したり、イベントを主催しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="block tint" id="activity">
+  <div class="container">
+    <h2>活動内容</h2>
+    <!-- 工事中: 考え中の乃愛と「項目追加中…」の吹き出し。活動内容が決まったら、この .wip を消して下のカードのコメントを外す -->
+    <div class="wip">
+      <svg class="wip-bubble" viewBox="0 0 300 180" aria-hidden="true">
+        <g class="wip-bubble-line"><circle cx="80" cy="95" r="55"/><circle cx="140" cy="65" r="55"/><circle cx="210" cy="70" r="50"/><circle cx="240" cy="110" r="45"/><circle cx="170" cy="125" r="50"/><circle cx="100" cy="125" r="45"/><circle cx="55" cy="115" r="35"/><circle cx="150" cy="100" r="60"/></g>
+        <g class="wip-bubble-fill"><circle cx="80" cy="95" r="55"/><circle cx="140" cy="65" r="55"/><circle cx="210" cy="70" r="50"/><circle cx="240" cy="110" r="45"/><circle cx="170" cy="125" r="50"/><circle cx="100" cy="125" r="45"/><circle cx="55" cy="115" r="35"/><circle cx="150" cy="100" r="60"/></g>
+      </svg>
+      <p class="wip-text">項目追加中…</p>
+      <span class="wip-dot wip-dot-1" aria-hidden="true"></span>
+      <span class="wip-dot wip-dot-2" aria-hidden="true"></span>
+      <img class="wip-img" src="assets/images/thinkingnoa.webp" alt="考え中の乃愛" data-hide-on-error>
+    </div>
+    <!--
+    <div class="activity-grid">
+      <div class="activity-card"><h3>VRChat</h3><p>アカウント作成：2018/4/27 <br>初publicにJoin：2018/8/8<br>現在に至るまでVRChatで主に活動しています。</p></div>
+      <div class="activity-card"><h3>うちのこ制作</h3><p>アバターの改変・制作についてここに書きます。うちのこ「烏山 乃愛」は<a href="character.html">キャラ紹介</a>で紹介しています。</p></div>
+      <div class="activity-card"><h3>グループ運営</h3><p>VRChat グループ「あまうさくらぶ」の運営についてここに書きます。</p></div>
+      <div class="activity-card"><h3>撮影・イラスト</h3><p>VRChat での撮影や、イラストの制作についてここに書きます。</p></div>
+    </div>
+    -->
+  </div>
+</section>
+<footer>
+  <div class="container d-flex flex-wrap justify-content-between gap-2">
+    <span>© <span id="year">2026</span> oolongtruth</span>
+    <a href="#top">ページの先頭へ</a>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>

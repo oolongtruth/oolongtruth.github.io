@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>リンク | oolongtruth</title>
+<meta name="description" content="oolong site">
+<link rel="icon" href="assets/images/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/site.css" rel="stylesheet">
+<!-- フェードインする要素を最初から隠しておく（ちらつき防止）。site.js が読めなかったときは4秒後に隠すのをやめる -->
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.siteReady)document.documentElement.classList.remove('js')},4000)</script>
+<script src="assets/js/site.js" defer></script>
+
+</head>
+<body>
+<div class="bg-heart" aria-hidden="true"></div>
+<nav class="navbar navbar-expand-md fixed-top navbar-dark">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" title="トップに戻る" aria-label="トップに戻る"><span class="brand-img"><img src="assets/images/oolong_logo.svg" alt="" width="40" height="40" data-hide-on-error></span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="メニューを開く"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="menu"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="about.html">自分の紹介</a></li><li class="nav-item"><a class="nav-link" href="character.html">キャラ紹介</a></li><li class="nav-item"><a class="nav-link active" href="links.html" aria-current="page">リンク</a></li></ul></div>
+  </div>
+</nav>
+
+<header class="page-head" id="top"><div class="container"><h1>リンク</h1></div></header>
+<section class="block">
+  <div class="container link-container">
+    <ul class="link-list">
+      <li><a href="https://misskey.niri.la/@oolong_truth" target="_blank" rel="noopener"><span class="sns-logo"><img src="assets/images/misskey.svg" alt="" data-icon-fallback></span><span class="sns-text">にりらみすきー部<br><small>日常のつぶやき</small></span><span aria-hidden="true">↗</span></a></li>
+      <li><a href="https://x.com/oolong_truth" target="_blank" rel="noopener"><span class="sns-logo"><img src="assets/images/twitter.svg" alt="" data-icon-fallback></span><span class="sns-text">Twitter<br><small>主に宣伝</small></span><span aria-hidden="true">↗</span></a></li>
+      <li><a href="https://vrchat.com/home/user/usr_2338abd2-e86f-42bc-b4ed-1112e98c5697" target="_blank" rel="noopener"><span class="sns-logo"><img src="assets/images/vrchat.svg" alt="" data-icon-fallback></span><span class="sns-text">VRChat<br><small>申請時は一言ください</small></span><span aria-hidden="true">↗</span></a></li>
+      <li><a href="https://vrchat.com/home/group/grp_a93aedbf-20de-4197-a2e5-74019a131fe9" target="_blank" rel="noopener"><span class="sns-logo"><img src="assets/images/amausaclub.svg" alt="" data-icon-fallback></span><span class="sns-text">あまうさくらぶ<br><small>運営しているVRCグループ</small></span><span aria-hidden="true">↗</span></a></li>
+      <li><a href="https://x.com/amausa_club" target="_blank" rel="noopener"><span class="sns-logo"><img src="assets/images/amausaclub.svg" alt="" data-icon-fallback></span><span class="sns-text">あまうさくらぶ公式アカウント<br><small>グループ告知用Twitter</small></span><span aria-hidden="true">↗</span></a></li>
+      <li><a href="https://buicha.social/@oolong_truth" target="_blank" rel="noopener"><span class="sns-logo"><img src="assets/images/misskey.svg" alt="" data-icon-fallback></span><span class="sns-text">ぶいちゃ.social<br><small>避難用1</small></span><span aria-hidden="true">↗</span></a></li>
+    </ul>
+  </div>
+</section>
+<footer>
+  <div class="container d-flex flex-wrap justify-content-between gap-2">
+    <span>© <span id="year">2026</span> oolongtruth</span>
+    <a href="#top">ページの先頭へ</a>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>
