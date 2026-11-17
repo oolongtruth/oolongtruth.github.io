@@ -2,22 +2,26 @@ document.documentElement.classList.add('js');
 // head 内の「4秒後に .js を外す」処理を止める
 window.siteReady = true;
 
+// 画像の保存防止（右クリック・ドラッグを無効）
+document.addEventListener('contextmenu', function(event) {
+  event.preventDefault();
+});
+document.addEventListener('dragstart', function(event) {
+  if (event.target instanceof HTMLImageElement) {
+    event.preventDefault();
+  }
+});
+
 var year = document.getElementById('year');
 if (year) {
   year.textContent = new Date().getFullYear();
 }
 
+// 読み込めなかった画像を隠す（枠の中の文字が見える）
 document.addEventListener('error', function(event) {
   var image = event.target;
-  if (!(image instanceof HTMLImageElement)) {
-    return;
-  }
-
-  if (image.hasAttribute('data-hide-on-error')) {
+  if (image instanceof HTMLImageElement && image.hasAttribute('data-hide-on-error')) {
     image.style.display = 'none';
-  }
-  if (image.hasAttribute('data-icon-fallback') && image.parentNode) {
-    image.parentNode.classList.add('is-empty');
   }
 }, true);
 
@@ -369,7 +373,7 @@ if (heroImage) {
   });
 }
 
-// キャラ紹介のキャラ画像: キャラの上で笑顔に切り替えて跳ねる（形のデータは通常・笑顔で共通）
+// うちのこ紹介のキャラ画像: キャラの上で笑顔に切り替えて跳ねる（形のデータは通常・笑顔で共通）
 var charPortrait = document.querySelector('.portrait.cutout');
 var charImage = charPortrait && charPortrait.querySelector('img:not(.char-smile)');
 if (charImage) {

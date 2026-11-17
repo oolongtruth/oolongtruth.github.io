@@ -23,15 +23,14 @@
 <!-- ちらつき防止（site.js が読めないときは4秒後に解除） -->
 <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.siteReady)document.documentElement.classList.remove('js')},4000)</script>
 <script src="assets/js/site.js" defer></script>
-
 </head>
 <body>
 <div class="bg-heart" aria-hidden="true"></div>
 <nav class="navbar navbar-expand-md fixed-top navbar-dark">
   <div class="container">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" title="トップに戻る" aria-label="トップに戻る"><span class="brand-img"><img src="assets/images/oolong_logo.svg" alt="" width="40" height="40" data-hide-on-error></span></a>
+    <a class="navbar-brand d-flex align-items-center" href="index.html" title="トップに戻る" aria-label="トップに戻る"><span class="brand-img"><img src="assets/images/oolong_logo.svg" alt="" width="40" height="40" data-hide-on-error></span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="メニューを開く"><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="menu"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="about.html">自分の紹介</a></li><li class="nav-item"><a class="nav-link" href="character.html">キャラ紹介</a></li><li class="nav-item"><a class="nav-link active" href="links.html" aria-current="page">リンク</a></li></ul></div>
+    <div class="collapse navbar-collapse" id="menu"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="about.html">自己紹介</a></li><li class="nav-item"><a class="nav-link" href="character.html">うちのこ紹介</a></li><li class="nav-item"><a class="nav-link active" href="links.html" aria-current="page">リンク</a></li></ul></div>
   </div>
 </nav>
 
@@ -50,12 +49,8 @@
 </section>
 <a class="to-top" href="#top"><span class="to-top-icon" aria-hidden="true"></span>TOP<span class="visually-hidden">（ページの先頭へ）</span></a>
 <footer>
-  <div class="container d-flex flex-wrap justify-content-between gap-2">
-    <span>© <span id="year">2026</span> oolongtruth</span>
-  </div>
+  <div class="container">© <span id="year">2026</span> oolongtruth</div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
 </body>
 </html>
